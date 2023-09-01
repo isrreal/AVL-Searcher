@@ -1,9 +1,9 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "PessoaPorCPF.hpp"
-#include "PessoaPorDataDeNascimento.hpp"
-#include "PessoaPorNome.hpp"
+#include "PersonByCPF.hpp"
+#include "PersonByBirthDate.hpp"
+#include "PersonByName.hpp"
 
 template <typename T>
 struct Node {
@@ -19,53 +19,51 @@ struct Node {
 };
 
 template <>
-struct Node<PessoaPorCPF*> {
-    PessoaPorCPF* key;
-    Node<PessoaPorCPF*>* left;
-    Node<PessoaPorCPF*>* right;
-    Node<PessoaPorCPF*>* parent;
+struct Node<PersonByCPF*> {
+    PersonByCPF* key;
+    Node<PersonByCPF*>* left;
+    Node<PersonByCPF*>* right;
+    Node<PersonByCPF*>* parent;
     int height;
-    Node<PessoaPorCPF*>(PessoaPorCPF* key,
-        Node<PessoaPorCPF*>* left = nullptr,
-        Node<PessoaPorCPF*>* right = nullptr,
-        Node<PessoaPorCPF*>* parent = nullptr,
+    Node<PersonByCPF*>(PersonByCPF* key,
+        Node<PersonByCPF*>* left = nullptr,
+        Node<PersonByCPF*>* right = nullptr,
+        Node<PersonByCPF*>* parent = nullptr,
         int height = 1):
             key(key), left(left), right(right), parent(parent), height(height) {}
-    ~Node<PessoaPorCPF*>() = default;
+    ~Node<PersonByCPF*>() = default;
 };
 
 template <>
-struct Node<PessoaPorNome*> {
-    PessoaPorNome* key;
-    Node<PessoaPorNome*>* left;
-    Node<PessoaPorNome*>* right;
-    Node<PessoaPorNome*>* parent;
+struct Node<PersonByName*> {
+    PersonByName* key;
+    Node<PersonByName*>* left;
+    Node<PersonByName*>* right;
+    Node<PersonByName*>* parent;
     int height;
-    Node<PessoaPorNome*>(PessoaPorNome* key,
-        Node<PessoaPorNome*>* left = nullptr,
-        Node<PessoaPorNome*>* right = nullptr,
-        Node<PessoaPorNome*>* parent = nullptr,
+    Node<PersonByName*>(PersonByName* key,
+        Node<PersonByName*>* left = nullptr,
+        Node<PersonByName*>* right = nullptr,
+        Node<PersonByName*>* parent = nullptr,
         int height = 1):
             key(key), left(left), right(right), parent(parent), height(height) {}
-    ~Node<PessoaPorNome*>() = default;
+    ~Node<PersonByName*>() = default;
 };
 
 template <>
-struct Node<PessoaPorDataDeNascimento*> {
-    PessoaPorDataDeNascimento* key;
-    Node<PessoaPorDataDeNascimento*>* left;
-    Node<PessoaPorDataDeNascimento*>* right;
-    Node<PessoaPorDataDeNascimento*>* parent;
+struct Node<PersonByBirthDate*> {
+    PersonByBirthDate* key;
+    Node<PersonByBirthDate*>* left;
+    Node<PersonByBirthDate*>* right;
+    Node<PersonByBirthDate*>* parent;
     int height;
-    Node<PessoaPorDataDeNascimento*>(PessoaPorDataDeNascimento* key,
-        Node<PessoaPorDataDeNascimento*>* left = nullptr,
-        Node<PessoaPorDataDeNascimento*>* right = nullptr,
-        Node<PessoaPorDataDeNascimento*>* parent = nullptr,
+    Node<PersonByBirthDate*>(PersonByBirthDate* key,
+        Node<PersonByBirthDate*>* left = nullptr,
+        Node<PersonByBirthDate*>* right = nullptr,
+        Node<PersonByBirthDate*>* parent = nullptr,
         int height = 1):
             key(key), left(left), right(right), parent(parent), height(height) {}
-    ~Node<PessoaPorDataDeNascimento*>() = default;
+    ~Node<PersonByBirthDate*>() = default;
 };
-
-
 
 #endif

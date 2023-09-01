@@ -1,12 +1,12 @@
-#ifndef BINARY_SEARCH_TREE_AVL_HPP
-#define BINARY_SEARCH_TREE_AVL_HPP
+#ifndef BINARYSEARCHTREEAVL_HPP
+#define BINARYSEARCHTREEAVL_HPP
 
 #include "Node.hpp" 
 
-// uma árvore AVL é uma BST que possui o fator de balanceamento, isto é,
-// a diferença entre as alturas das subárvores esquerda e direita, é no máximo 1.
+// An AVL tree is a BST that has the balancing factor, i.e.
+// the difference between the heights of the left and right subtrees is at most 1.
 
-// usando o template para tipos diferentes de chave
+// using the template for different key types
 int contador = 0;
 template <typename T>
 
@@ -48,160 +48,159 @@ public:
 
 template <>
 
-class BinarySearchTreeAVL<PessoaPorCPF*> {
+class BinarySearchTreeAVL<PersonByCPF*> {
 private:
-    Node<PessoaPorCPF*>* root;
-    void bShow(Node<PessoaPorCPF*>* node, std::string str) const;
-    int sizeRecursive(Node<PessoaPorCPF*>* node) const;
-    int height(Node<PessoaPorCPF*>* node) const;
-    int getBalance(Node<PessoaPorCPF*>* node) const;
-    void printPreOrderRecursive(Node<PessoaPorCPF*>* node) const;
-    void printInOrderRecursive(Node<PessoaPorCPF*>* node) const;
-    void printPostOrderRecursive(Node<PessoaPorCPF*>* node) const;
-    Node<PessoaPorCPF*>* findRecursive(Node<PessoaPorCPF*>* node, PessoaPorCPF* value);
-    Node<PessoaPorCPF*>* minRecursive(Node<PessoaPorCPF*>* node) const;
-    Node<PessoaPorCPF*>* maxRecursive(Node<PessoaPorCPF*>* node) const; 
-    Node<PessoaPorCPF*>* insertRecursive(Node<PessoaPorCPF*>* node, PessoaPorCPF* value);
-    Node<PessoaPorCPF*>* deleteRecursive(Node<PessoaPorCPF*>* node, PessoaPorCPF* value);
-    Node<PessoaPorCPF*>* rightRotation(Node<PessoaPorCPF*>* node);
-    Node<PessoaPorCPF*>* leftRotation(Node<PessoaPorCPF*>* node);
-    Node<PessoaPorCPF*>* clear(Node<PessoaPorCPF*>* node);
+    Node<PersonByCPF*>* root;
+    void bShow(Node<PersonByCPF*>* node, std::string str) const;
+    int sizeRecursive(Node<PersonByCPF*>* node) const;
+    int height(Node<PersonByCPF*>* node) const;
+    int getBalance(Node<PersonByCPF*>* node) const;
+    void printPreOrderRecursive(Node<PersonByCPF*>* node) const;
+    void printInOrderRecursive(Node<PersonByCPF*>* node) const;
+    void printPostOrderRecursive(Node<PersonByCPF*>* node) const;
+    Node<PersonByCPF*>* findRecursive(Node<PersonByCPF*>* node, PersonByCPF* value);
+    Node<PersonByCPF*>* minRecursive(Node<PersonByCPF*>* node) const;
+    Node<PersonByCPF*>* maxRecursive(Node<PersonByCPF*>* node) const; 
+    Node<PersonByCPF*>* insertRecursive(Node<PersonByCPF*>* node, PersonByCPF* value);
+    Node<PersonByCPF*>* deleteRecursive(Node<PersonByCPF*>* node, PersonByCPF* value);
+    Node<PersonByCPF*>* rightRotation(Node<PersonByCPF*>* node);
+    Node<PersonByCPF*>* leftRotation(Node<PersonByCPF*>* node);
+    Node<PersonByCPF*>* clear(Node<PersonByCPF*>* node);
 public:
-    BinarySearchTreeAVL<PessoaPorCPF*>();
-    ~BinarySearchTreeAVL<PessoaPorCPF*>();
-    void insert(PessoaPorCPF* value);
+    BinarySearchTreeAVL<PersonByCPF*>();
+    ~BinarySearchTreeAVL<PersonByCPF*>();
+    void insert(PersonByCPF* value);
     void bShow();
     void preOrder();
     void inOrder();
     void postOrder();
-    void deleteKey(PessoaPorCPF* value);
+    void deleteKey(PersonByCPF* value);
     int getSize();
-    PessoaPorCPF* getMin();
-    PessoaPorCPF* getMax();
-    Node<PessoaPorCPF*>* getRaiz();
-    void find(PessoaPorCPF* value);
-    Node<PessoaPorCPF*>* clear();
+    PersonByCPF* getMin();
+    PersonByCPF* getMax();
+    Node<PersonByCPF*>* getRaiz();
+    void find(PersonByCPF* value);
+    Node<PersonByCPF*>* clear();
 };
 
 
 template <>
 
-class BinarySearchTreeAVL<PessoaPorNome*> {
+class BinarySearchTreeAVL<PersonByName*> {
 private:
-    Node<PessoaPorNome*>* root;
-    void bShow(Node<PessoaPorNome*>* node, std::string str) const;
-    int sizeRecursive(Node<PessoaPorNome*>* node) const;
-    int height(Node<PessoaPorNome*>* node) const;
-    int getBalance(Node<PessoaPorNome*>* node) const;
-    void printPreOrderRecursive(Node<PessoaPorNome*>* node) const;
-    void printInOrderRecursive(Node<PessoaPorNome*>* node) const;
-    void printPostOrderRecursive(Node<PessoaPorNome*>* node) const;
-    Node<PessoaPorNome*>* findRecursive(Node<PessoaPorNome*>* node, PessoaPorNome* value);
-    Node<PessoaPorNome*>* minRecursive(Node<PessoaPorNome*>* node) const;
-    Node<PessoaPorNome*>* maxRecursive(Node<PessoaPorNome*>* node) const; 
-    Node<PessoaPorNome*>* insertRecursive(Node<PessoaPorNome*>* node, PessoaPorNome* value);
-    Node<PessoaPorNome*>* deleteRecursive(Node<PessoaPorNome*>* node, PessoaPorNome* value);
-    Node<PessoaPorNome*>* rightRotation(Node<PessoaPorNome*>* node);
-    Node<PessoaPorNome*>* leftRotation(Node<PessoaPorNome*>* node);
-    Node<PessoaPorNome*>* clear(Node<PessoaPorNome*>* node);
+    Node<PersonByName*>* root;
+    void bShow(Node<PersonByName*>* node, std::string str) const;
+    int sizeRecursive(Node<PersonByName*>* node) const;
+    int height(Node<PersonByName*>* node) const;
+    int getBalance(Node<PersonByName*>* node) const;
+    void printPreOrderRecursive(Node<PersonByName*>* node) const;
+    void printInOrderRecursive(Node<PersonByName*>* node) const;
+    void printPostOrderRecursive(Node<PersonByName*>* node) const;
+    Node<PersonByName*>* findRecursive(Node<PersonByName*>* node, PersonByName* value);
+    Node<PersonByName*>* minRecursive(Node<PersonByName*>* node) const;
+    Node<PersonByName*>* maxRecursive(Node<PersonByName*>* node) const; 
+    Node<PersonByName*>* insertRecursive(Node<PersonByName*>* node, PersonByName* value);
+    Node<PersonByName*>* deleteRecursive(Node<PersonByName*>* node, PersonByName* value);
+    Node<PersonByName*>* rightRotation(Node<PersonByName*>* node);
+    Node<PersonByName*>* leftRotation(Node<PersonByName*>* node);
+    Node<PersonByName*>* clear(Node<PersonByName*>* node);
 
 public:
-    BinarySearchTreeAVL<PessoaPorNome*>();
-    ~BinarySearchTreeAVL<PessoaPorNome*>();
-    void insert(PessoaPorNome* value);
+    BinarySearchTreeAVL<PersonByName*>();
+    ~BinarySearchTreeAVL<PersonByName*>();
+    void insert(PersonByName* value);
     void bShow();
     void preOrder();
     void inOrder();
     void postOrder();
-    void deleteKey(PessoaPorNome* value);
+    void deleteKey(PersonByName* value);
     int getSize();
-    PessoaPorNome* getMin();
-    PessoaPorNome* getMax();
-    Node<PessoaPorNome*>* getRaiz();
-    void find(PessoaPorNome* value);
-    Node<PessoaPorNome*>* clear();
+    PersonByName* getMin();
+    PersonByName* getMax();
+    Node<PersonByName*>* getRaiz();
+    void find(PersonByName* value);
+    Node<PersonByName*>* clear();
 };
 
 
 template <>
 
-class BinarySearchTreeAVL<PessoaPorDataDeNascimento*> {
+class BinarySearchTreeAVL<PersonByBirthDate*> {
 private:
-    Node<PessoaPorDataDeNascimento*>* root;
-    void bShow(Node<PessoaPorDataDeNascimento*>* node, std::string str) const;
-    int sizeRecursive(Node<PessoaPorDataDeNascimento*>* node) const;
-    int height(Node<PessoaPorDataDeNascimento*>* node) const;
-    int getBalance(Node<PessoaPorDataDeNascimento*>* node) const;
-    void printPreOrderRecursive(Node<PessoaPorDataDeNascimento*>* node) const;
-    void printInOrderRecursive(Node<PessoaPorDataDeNascimento*>* node) const;
-    void printPostOrderRecursive(Node<PessoaPorDataDeNascimento*>* node) const;
-    Node<PessoaPorDataDeNascimento*>* findRecursive(Node<PessoaPorDataDeNascimento*>* node, PessoaPorDataDeNascimento* value);
-    Node<PessoaPorDataDeNascimento*>* minRecursive(Node<PessoaPorDataDeNascimento*>* node) const;
-    Node<PessoaPorDataDeNascimento*>* maxRecursive(Node<PessoaPorDataDeNascimento*>* node) const; 
-    Node<PessoaPorDataDeNascimento*>* insertRecursive(Node<PessoaPorDataDeNascimento*>* node, PessoaPorDataDeNascimento* value);
-    Node<PessoaPorDataDeNascimento*>* deleteRecursive(Node<PessoaPorDataDeNascimento*>* node, PessoaPorDataDeNascimento* value);
-    Node<PessoaPorDataDeNascimento*>* rightRotation(Node<PessoaPorDataDeNascimento*>* node);
-    Node<PessoaPorDataDeNascimento*>* leftRotation(Node<PessoaPorDataDeNascimento*>* node);
-    Node<PessoaPorDataDeNascimento*>* clear(Node<PessoaPorDataDeNascimento*>* node);
-    Node<PessoaPorDataDeNascimento*>* sucessor(Node<PessoaPorDataDeNascimento*>* node);
-    Node<PessoaPorDataDeNascimento*>* predecessor(Node<PessoaPorDataDeNascimento*>* node);
+    Node<PersonByBirthDate*>* root;
+    void bShow(Node<PersonByBirthDate*>* node, std::string str) const;
+    int sizeRecursive(Node<PersonByBirthDate*>* node) const;
+    int height(Node<PersonByBirthDate*>* node) const;
+    int getBalance(Node<PersonByBirthDate*>* node) const;
+    void printPreOrderRecursive(Node<PersonByBirthDate*>* node) const;
+    void printInOrderRecursive(Node<PersonByBirthDate*>* node) const;
+    void printPostOrderRecursive(Node<PersonByBirthDate*>* node) const;
+    Node<PersonByBirthDate*>* findRecursive(Node<PersonByBirthDate*>* node, PersonByBirthDate* value);
+    Node<PersonByBirthDate*>* minRecursive(Node<PersonByBirthDate*>* node) const;
+    Node<PersonByBirthDate*>* maxRecursive(Node<PersonByBirthDate*>* node) const; 
+    Node<PersonByBirthDate*>* insertRecursive(Node<PersonByBirthDate*>* node, PersonByBirthDate* value);
+    Node<PersonByBirthDate*>* deleteRecursive(Node<PersonByBirthDate*>* node, PersonByBirthDate* value);
+    Node<PersonByBirthDate*>* rightRotation(Node<PersonByBirthDate*>* node);
+    Node<PersonByBirthDate*>* leftRotation(Node<PersonByBirthDate*>* node);
+    Node<PersonByBirthDate*>* clear(Node<PersonByBirthDate*>* node);
+    Node<PersonByBirthDate*>* sucessor(Node<PersonByBirthDate*>* node);
+    Node<PersonByBirthDate*>* predecessor(Node<PersonByBirthDate*>* node);
 public:
-    BinarySearchTreeAVL<PessoaPorDataDeNascimento*>();
-    ~BinarySearchTreeAVL<PessoaPorDataDeNascimento*>();
-    void insert(PessoaPorDataDeNascimento* value);
+    BinarySearchTreeAVL<PersonByBirthDate*>();
+    ~BinarySearchTreeAVL<PersonByBirthDate*>();
+    void insert(PersonByBirthDate* value);
     void bShow();
     void preOrder();
     void inOrder();
     void postOrder();
-    void deleteKey(PessoaPorDataDeNascimento* value);
+    void deleteKey(PersonByBirthDate* value);
     int getSize();
-    Node<PessoaPorDataDeNascimento*>* getMin();
-    Node<PessoaPorDataDeNascimento*>* getMax();
-    Node<PessoaPorDataDeNascimento*>* getRaiz();
-    void find(PessoaPorDataDeNascimento* value);
-    void find(Node<PessoaPorDataDeNascimento*>* node, PessoaPorDataDeNascimento* value);
-    Node<PessoaPorDataDeNascimento*>* clear();
+    Node<PersonByBirthDate*>* getMin();
+    Node<PersonByBirthDate*>* getMax();
+    Node<PersonByBirthDate*>* getRaiz();
+    void find(PersonByBirthDate* value);
+    void find(Node<PersonByBirthDate*>* node, PersonByBirthDate* value);
+    Node<PersonByBirthDate*>* clear();
 };
 
-// PessoaPorCPF
+// PersonByCPF
 
 //constructor
-    BinarySearchTreeAVL<PessoaPorCPF*>::BinarySearchTreeAVL(): root(nullptr) {}
+    BinarySearchTreeAVL<PersonByCPF*>::BinarySearchTreeAVL(): root(nullptr) {}
 
 // destructor
-    BinarySearchTreeAVL<PessoaPorCPF*>::~BinarySearchTreeAVL() {
-        BinarySearchTreeAVL<PessoaPorCPF*>::clear(this->root);
+    BinarySearchTreeAVL<PersonByCPF*>::~BinarySearchTreeAVL() {
+        BinarySearchTreeAVL<PersonByCPF*>::clear(this->root);
     }
 
 // private methods
-    int BinarySearchTreeAVL<PessoaPorCPF*>::height(Node<PessoaPorCPF*>* node) const {
+    int BinarySearchTreeAVL<PersonByCPF*>::height(Node<PersonByCPF*>* node) const {
         return !node ? 0: node->height;
     }
-    // Quando o nó é desbalanceado pela sua subárvore direita
-    Node<PessoaPorCPF*>* BinarySearchTreeAVL<PessoaPorCPF*>::leftRotation(Node<PessoaPorCPF*>* node) {
-        Node<PessoaPorCPF*>* temp = node->right;
+
+    Node<PersonByCPF*>* BinarySearchTreeAVL<PersonByCPF*>::leftRotation(Node<PersonByCPF*>* node) {
+        Node<PersonByCPF*>* temp = node->right;
         node->right = temp->left;
         temp->left = node;
-        // recalcular as alturas de p e de u
         node->height = 1 + std::max(this->height(node->left), this->height(node->right));
         temp->height = 1 + std::max(this->height(temp->left), this->height(temp->right));
         return temp;
     }
 
-    // Quando o nó é desbalanceado pela sua subárvore esquerda
-    Node<PessoaPorCPF*>* BinarySearchTreeAVL<PessoaPorCPF*>::rightRotation(Node<PessoaPorCPF*>* node) {
-        Node<PessoaPorCPF*>* temp = node->left;
+    Node<PersonByCPF*>* BinarySearchTreeAVL<PersonByCPF*>::rightRotation(Node<PersonByCPF*>* node) {
+        Node<PersonByCPF*>* temp = node->left;
         node->left = temp->right;
         temp->right = node;        
-        // recalcular as alturas de p e de u
+        
         node->height = 1 + std::max(this->height(node->left), this->height(node->right));
         temp->height = 1 + std::max(this->height(temp->left), this->height(temp->right));
         return temp;
     }
 
-    Node<PessoaPorCPF*>* BinarySearchTreeAVL<PessoaPorCPF*>::insertRecursive(Node<PessoaPorCPF*>* node, PessoaPorCPF* value) {
-        if (!node)
-            return new Node<PessoaPorCPF*>(value);
+    Node<PersonByCPF*>* BinarySearchTreeAVL<PersonByCPF*>::insertRecursive(Node<PersonByCPF*>* node, PersonByCPF* value) {
+        if (!node) 
+            return new Node<PersonByCPF*>(value);
+
         else if (*value > *node->key)
             node->right = insertRecursive(node->right, value);
         else if (*value < *node->key)
@@ -231,7 +230,7 @@ public:
         return node;
     }
     
-    Node<PessoaPorCPF*>* BinarySearchTreeAVL<PessoaPorCPF*>::deleteRecursive(Node<PessoaPorCPF*>* node, PessoaPorCPF* value) {
+    Node<PersonByCPF*>* BinarySearchTreeAVL<PersonByCPF*>::deleteRecursive(Node<PersonByCPF*>* node, PersonByCPF* value) {
         if (!node)
             return nullptr;
         else if (*node->key > *value)
@@ -239,21 +238,20 @@ public:
         else if (*node->key < *value)
             return deleteRecursive(node->right, value);
         else {
-            // não tem subárvore esquerda
             if (!node->left) {
-                Node<PessoaPorCPF*>* temp = node->right;
+                Node<PersonByCPF*>* temp = node->right;
                 delete node;
                 return temp;
             }
-            // não tem subárvore direita
+
             else if (!node->right) {
-                Node<PessoaPorCPF*>* temp = node->left;
+                Node<PersonByCPF*>* temp = node->left;
                 delete node;
                 return temp;
             }
-            // tem ambas as subárvores
+
             else {
-                Node<PessoaPorCPF*>* temp = minRecursive(node->right);
+                Node<PersonByCPF*>* temp = minRecursive(node->right);
                 node->key->getCPF() = temp->key->getCPF();
                 node->right = deleteRecursive(node->right, temp->key);
             }
@@ -282,7 +280,7 @@ public:
         }
     }
 
-    Node<PessoaPorCPF*>* BinarySearchTreeAVL<PessoaPorCPF*>::findRecursive(Node<PessoaPorCPF*>* node, PessoaPorCPF* value) {
+    Node<PersonByCPF*>* BinarySearchTreeAVL<PersonByCPF*>::findRecursive(Node<PersonByCPF*>* node, PersonByCPF* value) {
         if (!node)
             return nullptr;
         else if (*node->key == *value)
@@ -293,22 +291,22 @@ public:
             return findRecursive(node->left, value);
     }
 
-    int BinarySearchTreeAVL<PessoaPorCPF*>::getBalance(Node<PessoaPorCPF*>* node) const {
+    int BinarySearchTreeAVL<PersonByCPF*>::getBalance(Node<PersonByCPF*>* node) const {
         return height(node->right) - height(node->left);
     }
 
-    int BinarySearchTreeAVL<PessoaPorCPF*>::sizeRecursive(Node<PessoaPorCPF*>* node) const {
+    int BinarySearchTreeAVL<PersonByCPF*>::sizeRecursive(Node<PersonByCPF*>* node) const {
         return !node ? 0 : 1 + sizeRecursive(node->left) + sizeRecursive(node->right);
     }
 
-    void BinarySearchTreeAVL<PessoaPorCPF*>::printPreOrderRecursive(Node<PessoaPorCPF*>* node) const {
+    void BinarySearchTreeAVL<PersonByCPF*>::printPreOrderRecursive(Node<PersonByCPF*>* node) const {
         if (node) {
             std::cout << *node->key << " ";
             printPreOrderRecursive(node->left);
             printPreOrderRecursive(node->right);
         }
     }
-    void BinarySearchTreeAVL<PessoaPorCPF*>::printInOrderRecursive(Node<PessoaPorCPF*>* node) const {
+    void BinarySearchTreeAVL<PersonByCPF*>::printInOrderRecursive(Node<PersonByCPF*>* node) const {
         if (node) {
             printInOrderRecursive(node->left);
             std::cout << *node->key << " ";
@@ -316,7 +314,7 @@ public:
         }
     }
 
-    void BinarySearchTreeAVL<PessoaPorCPF*>::printPostOrderRecursive(Node<PessoaPorCPF*>* node) const {
+    void BinarySearchTreeAVL<PersonByCPF*>::printPostOrderRecursive(Node<PersonByCPF*>* node) const {
         if (node) {
             printPostOrderRecursive(node->left);
             printPostOrderRecursive(node->right);
@@ -324,7 +322,7 @@ public:
         }
     }
 
-    Node<PessoaPorCPF*>* BinarySearchTreeAVL<PessoaPorCPF*>::minRecursive(Node<PessoaPorCPF*>* node) const {
+    Node<PersonByCPF*>* BinarySearchTreeAVL<PersonByCPF*>::minRecursive(Node<PersonByCPF*>* node) const {
         if (!node)
             return nullptr;
         if (node->left)
@@ -333,7 +331,7 @@ public:
             return node;
     }
 
-    Node<PessoaPorCPF*>* BinarySearchTreeAVL<PessoaPorCPF*>::maxRecursive(Node<PessoaPorCPF*>* node) const {
+    Node<PersonByCPF*>* BinarySearchTreeAVL<PersonByCPF*>::maxRecursive(Node<PersonByCPF*>* node) const {
         if (!node)
             return nullptr;
         else if (node->right)
@@ -342,7 +340,7 @@ public:
             return node;
     }
 
-    Node<PessoaPorCPF*>* BinarySearchTreeAVL<PessoaPorCPF*>::clear(Node<PessoaPorCPF*>* node) {
+    Node<PersonByCPF*>* BinarySearchTreeAVL<PersonByCPF*>::clear(Node<PersonByCPF*>* node) {
         if(node) {
             node->left = clear(node->left);
             node->right = clear(node->right);
@@ -351,25 +349,25 @@ public:
         return nullptr;
     }
 
-    void BinarySearchTreeAVL<PessoaPorCPF*>::bShow(Node<PessoaPorCPF*>* node, std::string heranca) const {
+    void BinarySearchTreeAVL<PersonByCPF*>::bShow(Node<PersonByCPF*>* node, std::string heritage) const {
         if(node && (node->left || node->right))
-            BinarySearchTreeAVL<PessoaPorCPF*>::bShow(node->right , heranca + "r");
-        for (int i = 0; i < (int) heranca.size() - 1; i++)
-            std::cout << (heranca[i] != heranca[i + 1] ? "│   " : "    ");
-        if (heranca != "")
-            std::cout << (heranca.back() == 'r' ? "┌───" : "└───");
+            BinarySearchTreeAVL<PersonByCPF*>::bShow(node->right , heritage + "r");
+        for (int i = 0; i < (int) heritage.size() - 1; i++)
+            std::cout << (heritage[i] != heritage[i + 1] ? "│   " : "    ");
+        if (heritage != "")
+            std::cout << (heritage.back() == 'r' ? "┌───" : "└───");
         if (!node) {
             std::cout << "#" << std::endl;
             return;
         }
         std::cout << *node->key << std::endl;
         if (node && (node->left || node->right))
-            this->bShow(node->left, heranca + "l");
+            this->bShow(node->left, heritage + "l");
     }
 
 // public methods
 
-    void BinarySearchTreeAVL<PessoaPorCPF*>::preOrder() {
+    void BinarySearchTreeAVL<PersonByCPF*>::preOrder() {
         if (!this->root) {
             std::cout << "Empty tree" << std::endl;
             return;
@@ -378,7 +376,7 @@ public:
             this->printPreOrderRecursive(this->root);
     }
 
-    void BinarySearchTreeAVL<PessoaPorCPF*>::inOrder() {
+    void BinarySearchTreeAVL<PersonByCPF*>::inOrder() {
         if (!this->root) {
             std::cout << "Empty tree" << std::endl;
             return;
@@ -388,32 +386,32 @@ public:
     }
 
     
-    void BinarySearchTreeAVL<PessoaPorCPF*>::postOrder() {
+    void BinarySearchTreeAVL<PersonByCPF*>::postOrder() {
         if (!this->root)
             std::cout << "Empty tree" << std::endl;
         else
             this->printPostOrderRecursive(this->root);
     }
 
-    void BinarySearchTreeAVL<PessoaPorCPF*>::bShow() { this->bShow(this->root, ""); }
+    void BinarySearchTreeAVL<PersonByCPF*>::bShow() { this->bShow(this->root, ""); }
     
-    PessoaPorCPF* BinarySearchTreeAVL<PessoaPorCPF*>::getMin() { return this->minRecursive(this->root)->key; }
+    PersonByCPF* BinarySearchTreeAVL<PersonByCPF*>::getMin() { return this->minRecursive(this->root)->key; }
     
-    PessoaPorCPF* BinarySearchTreeAVL<PessoaPorCPF*>::getMax() { return this->maxRecursive(this->root)->key; }
+    PersonByCPF* BinarySearchTreeAVL<PersonByCPF*>::getMax() { return this->maxRecursive(this->root)->key; }
     
-    Node<PessoaPorCPF*>* BinarySearchTreeAVL<PessoaPorCPF*>::getRaiz() { return this->root; }
+    Node<PersonByCPF*>* BinarySearchTreeAVL<PersonByCPF*>::getRaiz() { return this->root; }
 
-    int BinarySearchTreeAVL<PessoaPorCPF*>::getSize() { return this->sizeRecursive(this->root); }
+    int BinarySearchTreeAVL<PersonByCPF*>::getSize() { return this->sizeRecursive(this->root); }
 
-    void BinarySearchTreeAVL<PessoaPorCPF*>::find(PessoaPorCPF* value) { 
-        Node<PessoaPorCPF*>* temp = this->findRecursive(this->root, value);
+    void BinarySearchTreeAVL<PersonByCPF*>::find(PersonByCPF* value) { 
+        Node<PersonByCPF*>* temp = this->findRecursive(this->root, value);
         if (!temp)
-            std::cout << "CPF não encontrado" << std::endl;
+            std::cout << "Not found CPF" << std::endl;
         else
             std::cout << *temp->key;
     }
 
-    void BinarySearchTreeAVL<PessoaPorCPF*>::insert(PessoaPorCPF* value) {
+    void BinarySearchTreeAVL<PersonByCPF*>::insert(PersonByCPF* value) {        
         this->root = insertRecursive(this->root, value);
     }
 
@@ -447,38 +445,35 @@ public:
 
 
 
-// PessoaPorNome
+// PersonByName
 
 //constructor
-    BinarySearchTreeAVL<PessoaPorNome*>::BinarySearchTreeAVL(): root(nullptr) {}
+    BinarySearchTreeAVL<PersonByName*>::BinarySearchTreeAVL(): root(nullptr) {}
 
 // destructor
-    BinarySearchTreeAVL<PessoaPorNome*>::~BinarySearchTreeAVL() { this->clear(this->root); }
+    BinarySearchTreeAVL<PersonByName*>::~BinarySearchTreeAVL() { this->clear(this->root); }
 
 // private methods
-    // Quando o nó é desbalanceado pela sua subárvore direita
-    Node<PessoaPorNome*>* BinarySearchTreeAVL<PessoaPorNome*>::leftRotation(Node<PessoaPorNome*>* node) {
-        Node<PessoaPorNome*>* temp = node->right;
+    Node<PersonByName*>* BinarySearchTreeAVL<PersonByName*>::leftRotation(Node<PersonByName*>* node) {
+        Node<PersonByName*>* temp = node->right;
         node->right = temp->left;
         temp->left = node;
-        // recalcular as alturas de p e de u
         node->height = 1 + std::max(this->height(node->left), this->height(node->right));
         temp->height = 1 + std::max(this->height(temp->left), this->height(temp->right));
         return temp;
     }
 
-    // Quando o nó é desbalanceado pela sua subárvore esquerda
-    Node<PessoaPorNome*>* BinarySearchTreeAVL<PessoaPorNome*>::rightRotation(Node<PessoaPorNome*>* node) {
-        Node<PessoaPorNome*>* temp = node->left;
+    Node<PersonByName*>* BinarySearchTreeAVL<PersonByName*>::rightRotation(Node<PersonByName*>* node) {
+        Node<PersonByName*>* temp = node->left;
         node->left = temp->right;
         temp->right = node;        
-        // recalcular as alturas de p e de u
+        
         node->height = 1 + std::max(this->height(node->left), this->height(node->right));
         temp->height = 1 + std::max(this->height(temp->left), this->height(temp->right));
         return temp;
     }
 
-    Node<PessoaPorNome*>* BinarySearchTreeAVL<PessoaPorNome*>::findRecursive(Node<PessoaPorNome*>* node, PessoaPorNome* value) {
+    Node<PersonByName*>* BinarySearchTreeAVL<PersonByName*>::findRecursive(Node<PersonByName*>* node, PersonByName* value) {
         if (!node)
             return nullptr;
         if (*node->key == *value) {
@@ -494,9 +489,9 @@ public:
             return this->findRecursive(node->right, value);
     }
 
-    Node<PessoaPorNome*>* BinarySearchTreeAVL<PessoaPorNome*>::insertRecursive(Node<PessoaPorNome*>* node, PessoaPorNome* value) {
+    Node<PersonByName*>* BinarySearchTreeAVL<PersonByName*>::insertRecursive(Node<PersonByName*>* node, PersonByName* value) {
         if (!node)
-            return new Node<PessoaPorNome*>(value);
+            return new Node<PersonByName*>(value);
         else if (*value < *node->key)
             node->left = this->insertRecursive(node->left, value);
         else if (*value > *node->key || *value == *node->key)
@@ -523,71 +518,70 @@ public:
         return node;
     }
     
-    Node<PessoaPorNome*>* BinarySearchTreeAVL<PessoaPorNome*>::deleteRecursive(Node<PessoaPorNome*>* node, PessoaPorNome* value) {
+    Node<PersonByName*>* BinarySearchTreeAVL<PersonByName*>::deleteRecursive(Node<PersonByName*>* node, PersonByName* value) {
         if (!node)
             return nullptr;
         else if (node->key > value)
-            return BinarySearchTreeAVL<PessoaPorNome*>::deleteRecursive(node->left, value);
+            return BinarySearchTreeAVL<PersonByName*>::deleteRecursive(node->left, value);
         else if (node->key < value)
-            return BinarySearchTreeAVL<PessoaPorNome*>::deleteRecursive(node->right, value);
+            return BinarySearchTreeAVL<PersonByName*>::deleteRecursive(node->right, value);
         else {
-            // não tem subárvore esquerda
             if (!node->left) {
-                Node<PessoaPorNome*>* temp = node->right;
+                Node<PersonByName*>* temp = node->right;
                 delete node;
                 return temp;
             }
-            // não tem subárvore direita
+
             else if (!node->right) {
-                Node<PessoaPorNome*>* temp = node->left;
+                Node<PersonByName*>* temp = node->left;
                 delete node;
                 return temp;
             }
-            // tem ambas as subárvores
+
             else {
-                Node<PessoaPorNome*>* temp = BinarySearchTreeAVL<PessoaPorNome*>::minRecursive(node->right);
+                Node<PersonByName*>* temp = BinarySearchTreeAVL<PersonByName*>::minRecursive(node->right);
                 node->key = temp->key;
-                node->right = BinarySearchTreeAVL<PessoaPorNome*>::deleteRecursive(node->right, temp->key);
+                node->right = BinarySearchTreeAVL<PersonByName*>::deleteRecursive(node->right, temp->key);
             }
 
-            int balance = BinarySearchTreeAVL<PessoaPorNome*>::getBalance(node);
+            int balance = BinarySearchTreeAVL<PersonByName*>::getBalance(node);
 
-            if (balance > 1 && BinarySearchTreeAVL<PessoaPorNome*>::getBalance(node->left) >= 0)
-                return BinarySearchTreeAVL<PessoaPorNome*>::rightRotation(node);
+            if (balance > 1 && BinarySearchTreeAVL<PersonByName*>::getBalance(node->left) >= 0)
+                return BinarySearchTreeAVL<PersonByName*>::rightRotation(node);
 
-            if (balance > 1 && BinarySearchTreeAVL<PessoaPorNome*>::getBalance(node->left) < 0) {
+            if (balance > 1 && BinarySearchTreeAVL<PersonByName*>::getBalance(node->left) < 0) {
                 node->left = this->leftRotation(node->left);
                 return this->rightRotation(node);
             }
 
-            if (balance < -1 && BinarySearchTreeAVL<PessoaPorNome*>::getBalance(node->right) <= 0)
+            if (balance < -1 && BinarySearchTreeAVL<PersonByName*>::getBalance(node->right) <= 0)
                 return this->leftRotation(node);
 
-            if (balance < -1 && BinarySearchTreeAVL<PessoaPorNome*>::getBalance(node->right) > 0) {
+            if (balance < -1 && BinarySearchTreeAVL<PersonByName*>::getBalance(node->right) > 0) {
                 node->right = this->rightRotation(node->right);
-                return BinarySearchTreeAVL<PessoaPorNome*>::leftRotation(node);
+                return BinarySearchTreeAVL<PersonByName*>::leftRotation(node);
             }
 
             return node;
         }
     }
 
-    int BinarySearchTreeAVL<PessoaPorNome*>::getBalance(Node<PessoaPorNome*>* node) const {
+    int BinarySearchTreeAVL<PersonByName*>::getBalance(Node<PersonByName*>* node) const {
         return this->height(node->right) - this->height(node->left);
     }
 
-    int BinarySearchTreeAVL<PessoaPorNome*>::sizeRecursive(Node<PessoaPorNome*>* node) const {
+    int BinarySearchTreeAVL<PersonByName*>::sizeRecursive(Node<PersonByName*>* node) const {
         return !node ? 0 : 1 + this->sizeRecursive(node->left) + this->sizeRecursive(node->right);
     }
 
-    void BinarySearchTreeAVL<PessoaPorNome*>::printPreOrderRecursive(Node<PessoaPorNome*>* node) const {
+    void BinarySearchTreeAVL<PersonByName*>::printPreOrderRecursive(Node<PersonByName*>* node) const {
         if (node) {
             std::cout << *node->key << " ";
             this->printPreOrderRecursive(node->left);
             this->printPreOrderRecursive(node->right);
         }
     }
-    void BinarySearchTreeAVL<PessoaPorNome*>::printInOrderRecursive(Node<PessoaPorNome*>* node) const {
+    void BinarySearchTreeAVL<PersonByName*>::printInOrderRecursive(Node<PersonByName*>* node) const {
         if (node) {
             this->printInOrderRecursive(node->left);
             std::cout << *node->key << " ";
@@ -595,7 +589,7 @@ public:
         }
     }
 
-    void BinarySearchTreeAVL<PessoaPorNome*>::printPostOrderRecursive(Node<PessoaPorNome*>* node) const {
+    void BinarySearchTreeAVL<PersonByName*>::printPostOrderRecursive(Node<PersonByName*>* node) const {
         if (node) {
             this->printPostOrderRecursive(node->left);
             this->printPostOrderRecursive(node->right);
@@ -603,7 +597,7 @@ public:
         }
     }
 
-    Node<PessoaPorNome*>* BinarySearchTreeAVL<PessoaPorNome*>::minRecursive(Node<PessoaPorNome*>* node) const {
+    Node<PersonByName*>* BinarySearchTreeAVL<PersonByName*>::minRecursive(Node<PersonByName*>* node) const {
         if (!node)
             return nullptr;
         else if (node->left)
@@ -612,7 +606,7 @@ public:
             return node;
     }
 
-    Node<PessoaPorNome*>* BinarySearchTreeAVL<PessoaPorNome*>::maxRecursive(Node<PessoaPorNome*>* node) const {
+    Node<PersonByName*>* BinarySearchTreeAVL<PersonByName*>::maxRecursive(Node<PersonByName*>* node) const {
         if (!node)
             return nullptr;
         else if (node->right)
@@ -621,11 +615,11 @@ public:
             return node;
     }
 
-    int BinarySearchTreeAVL<PessoaPorNome*>::height(Node<PessoaPorNome*>* node) const {
+    int BinarySearchTreeAVL<PersonByName*>::height(Node<PersonByName*>* node) const {
         return !node ? 0: node->height;
     }
 
-    Node<PessoaPorNome*>* BinarySearchTreeAVL<PessoaPorNome*>::clear(Node<PessoaPorNome*>* node) {
+    Node<PersonByName*>* BinarySearchTreeAVL<PersonByName*>::clear(Node<PersonByName*>* node) {
         if(node) {
             node->left = this->clear(node->left);
             node->right = this->clear(node->right);
@@ -633,25 +627,25 @@ public:
         }
         return nullptr;
     }
-     void BinarySearchTreeAVL<PessoaPorNome*>::bShow(Node<PessoaPorNome*>* node, std::string heranca) const {
+     void BinarySearchTreeAVL<PersonByName*>::bShow(Node<PersonByName*>* node, std::string heritage) const {
         if(node && (node->left || node->right))
-            this->bShow(node->right , heranca + "r");
-        for (int i = 0; i < (int) heranca.size() - 1; i++)
-            std::cout << (heranca[i] != heranca[i + 1] ? "│   " : "    ");
-        if (heranca != "")
-            std::cout << (heranca.back() == 'r' ? "┌───" : "└───");
+            this->bShow(node->right , heritage + "r");
+        for (int i = 0; i < (int) heritage.size() - 1; i++)
+            std::cout << (heritage[i] != heritage[i + 1] ? "│   " : "    ");
+        if (heritage != "")
+            std::cout << (heritage.back() == 'r' ? "┌───" : "└───");
         if (!node) {
             std::cout << "#" << std::endl;
             return;
         }
         std::cout << *node->key << std::endl;
         if (node && (node->left || node->right))
-            this->bShow(node->left, heranca + "l");
+            this->bShow(node->left, heritage + "l");
     }
 
 // public methods
 
-    void BinarySearchTreeAVL<PessoaPorNome*>::preOrder() {
+    void BinarySearchTreeAVL<PersonByName*>::preOrder() {
         if (!this->root) {
             std::cout << "Empty tree" << std::endl;
             return;
@@ -660,7 +654,7 @@ public:
             this->printPreOrderRecursive(this->root);
     }
 
-     void BinarySearchTreeAVL<PessoaPorNome*>::inOrder() {
+     void BinarySearchTreeAVL<PersonByName*>::inOrder() {
         if (!this->root) {
             std::cout << "Empty tree" << std::endl;
             return;
@@ -670,7 +664,7 @@ public:
     }
 
     
-    void BinarySearchTreeAVL<PessoaPorNome*>::postOrder() {
+    void BinarySearchTreeAVL<PersonByName*>::postOrder() {
         if (!this->root)
             std::cout << "Empty tree" << std::endl;
         else
@@ -678,27 +672,27 @@ public:
     }
 
     
-    void BinarySearchTreeAVL<PessoaPorNome*>::insert(PessoaPorNome* value) {
+    void BinarySearchTreeAVL<PersonByName*>::insert(PersonByName* value) {
         this->root = this->insertRecursive(this->root, value);
     }
 
-    void BinarySearchTreeAVL<PessoaPorNome*>::bShow() {
+    void BinarySearchTreeAVL<PersonByName*>::bShow() {
         this->bShow(this->root, "");
     }
     
-    PessoaPorNome* BinarySearchTreeAVL<PessoaPorNome*>::getMin() { return this->minRecursive(this->root)->key; }
+    PersonByName* BinarySearchTreeAVL<PersonByName*>::getMin() { return this->minRecursive(this->root)->key; }
     
-    PessoaPorNome* BinarySearchTreeAVL<PessoaPorNome*>::getMax() { return this->maxRecursive(this->root)->key; }
+    PersonByName* BinarySearchTreeAVL<PersonByName*>::getMax() { return this->maxRecursive(this->root)->key; }
 
-    Node<PessoaPorNome*>* BinarySearchTreeAVL<PessoaPorNome*>::getRaiz() { return this->root; }
+    Node<PersonByName*>* BinarySearchTreeAVL<PersonByName*>::getRaiz() { return this->root; }
    
-    int BinarySearchTreeAVL<PessoaPorNome*>::getSize() { return this->sizeRecursive(this->root); }
+    int BinarySearchTreeAVL<PersonByName*>::getSize() { return this->sizeRecursive(this->root); }
     
-    void BinarySearchTreeAVL<PessoaPorNome*>::find(PessoaPorNome* value) { 
-        std::string nome = PessoaPorNome::normalizarNome(PessoaPorNome::converter.from_bytes(value->getNome().append(value->getSobreNome())));
-        Node<PessoaPorNome*>* temp = this->findRecursive(this->root, new PessoaPorNome(nome));
+    void BinarySearchTreeAVL<PersonByName*>::find(PersonByName* value) { 
+        std::string name = PersonByName::normalizeName(PersonByName::convert.from_bytes(value->getName().append(value->getSurname())));
+        Node<PersonByName*>* temp = this->findRecursive(this->root, new PersonByName(name));
         if (!temp)
-            std::cout << "Não há correspondências." << std::endl;
+            std::cout << "There is no match." << std::endl;
     }
 
 
@@ -727,52 +721,49 @@ public:
 
 
 
-// PessoaPorDataDeNascimento
+// PersonByBirthDate
 
 //constructor
-    BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::BinarySearchTreeAVL(): root(nullptr) {}
+    BinarySearchTreeAVL<PersonByBirthDate*>::BinarySearchTreeAVL(): root(nullptr) {}
 
 // destructor
-    BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::~BinarySearchTreeAVL() {
-        BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::clear(this->root);
+    BinarySearchTreeAVL<PersonByBirthDate*>::~BinarySearchTreeAVL() {
+        BinarySearchTreeAVL<PersonByBirthDate*>::clear(this->root);
     }
 
 // private methods
-    int BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::height(Node<PessoaPorDataDeNascimento*>* node) const {
+    int BinarySearchTreeAVL<PersonByBirthDate*>::height(Node<PersonByBirthDate*>* node) const {
         return !node ? 0: node->height;
     }
-    // Quando o nó é desbalanceado pela sua subárvore direita
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::leftRotation(Node<PessoaPorDataDeNascimento*>* node) {
-        Node<PessoaPorDataDeNascimento*>* temp = node->right;
+
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::leftRotation(Node<PersonByBirthDate*>* node) {
+        Node<PersonByBirthDate*>* temp = node->right;
         node->right = temp->left;
         temp->left = node;
-        // recalcular as alturas de p e de u
         node->height = 1 + std::max(this->height(node->left), this->height(node->right));
         temp->height = 1 + std::max(this->height(temp->left), this->height(temp->right));
         return temp;
     }
 
-    // Quando o nó é desbalanceado pela sua subárvore esquerda
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::rightRotation(Node<PessoaPorDataDeNascimento*>* node) {
-        Node<PessoaPorDataDeNascimento*>* temp = node->left;
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::rightRotation(Node<PersonByBirthDate*>* node) {
+        Node<PersonByBirthDate*>* temp = node->left;
         node->left = temp->right;
         temp->right = node;        
-        // recalcular as alturas de p e de u
         node->height = 1 + std::max(this->height(node->left), this->height(node->right));
         temp->height = 1 + std::max(this->height(temp->left), this->height(temp->right));
         return temp;
     }
 
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::insertRecursive(Node<PessoaPorDataDeNascimento*>* node, PessoaPorDataDeNascimento* value) {
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::insertRecursive(Node<PersonByBirthDate*>* node, PersonByBirthDate* value) {
     if (!this->root) {
-        this->root = new Node<PessoaPorDataDeNascimento*>(value);
+        this->root = new Node<PersonByBirthDate*>(value);
         return this->root;
     }
-    Node<PessoaPorDataDeNascimento*>* iterator = this->root;
+    Node<PersonByBirthDate*>* iterator = this->root;
     while (iterator) {
         if (*value < *iterator->key) {
             if (!iterator->left) {
-                iterator->left = new Node<PessoaPorDataDeNascimento*>(value);
+                iterator->left = new Node<PersonByBirthDate*>(value);
                 iterator->left->parent = iterator;
                 break;
             }
@@ -780,7 +771,7 @@ public:
         } 
         else if (*value > *iterator->key || *value == *iterator->key ) {
             if (!iterator->right) {
-                iterator->right = new Node<PessoaPorDataDeNascimento*>(value);
+                iterator->right = new Node<PersonByBirthDate*>(value);
                 iterator->right->parent = iterator;
                 break;
             }
@@ -809,7 +800,7 @@ public:
     return node;
 }
     
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::deleteRecursive(Node<PessoaPorDataDeNascimento*>* node, PessoaPorDataDeNascimento* value) {
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::deleteRecursive(Node<PersonByBirthDate*>* node, PersonByBirthDate* value) {
         if (!node)
             return nullptr;
         else if (*node->key > *value)
@@ -817,21 +808,20 @@ public:
         else if (*node->key < *value)
             return deleteRecursive(node->right, value);
         else {
-            // não tem subárvore esquerda
             if (!node->left) {
-                Node<PessoaPorDataDeNascimento*>* temp = node->right;
+                Node<PersonByBirthDate*>* temp = node->right;
                 delete node;
                 return temp;
             }
-            // não tem subárvore direita
+
             else if (!node->right) {
-                Node<PessoaPorDataDeNascimento*>* temp = node->left;
+                Node<PersonByBirthDate*>* temp = node->left;
                 delete node;
                 return temp;
             }
-            // tem ambas as subárvores
+
             else {
-                Node<PessoaPorDataDeNascimento*>* temp = minRecursive(node->right);
+                Node<PersonByBirthDate*>* temp = minRecursive(node->right);
                 node->key->getCPF() = temp->key->getCPF();
                 node->right = deleteRecursive(node->right, temp->key);
             }
@@ -860,7 +850,7 @@ public:
         }
     }
 
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::findRecursive(Node<PessoaPorDataDeNascimento*>* node, PessoaPorDataDeNascimento* value) {
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::findRecursive(Node<PersonByBirthDate*>* node, PersonByBirthDate* value) {
         if (!node)
             return nullptr;
         if (*node->key == *value)
@@ -879,22 +869,22 @@ public:
             return this->findRecursive(node->left, value);               
     }   
 
-    int BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::getBalance(Node<PessoaPorDataDeNascimento*>* node) const {
+    int BinarySearchTreeAVL<PersonByBirthDate*>::getBalance(Node<PersonByBirthDate*>* node) const {
         return height(node->right) - height(node->left);
     }
 
-    int BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::sizeRecursive(Node<PessoaPorDataDeNascimento*>* node) const {
+    int BinarySearchTreeAVL<PersonByBirthDate*>::sizeRecursive(Node<PersonByBirthDate*>* node) const {
         return !node ? 0 : 1 + sizeRecursive(node->left) + sizeRecursive(node->right);
     }
 
-    void BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::printPreOrderRecursive(Node<PessoaPorDataDeNascimento*>* node) const {
+    void BinarySearchTreeAVL<PersonByBirthDate*>::printPreOrderRecursive(Node<PersonByBirthDate*>* node) const {
         if (node) {
             std::cout << *node->key << " ";
             printPreOrderRecursive(node->left);
             printPreOrderRecursive(node->right);
         }
     }
-    void BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::printInOrderRecursive(Node<PessoaPorDataDeNascimento*>* node) const {
+    void BinarySearchTreeAVL<PersonByBirthDate*>::printInOrderRecursive(Node<PersonByBirthDate*>* node) const {
         if (node) {
             printInOrderRecursive(node->left);
             std::cout << *node->key << " ";
@@ -902,7 +892,7 @@ public:
         }
     }
 
-    void BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::printPostOrderRecursive(Node<PessoaPorDataDeNascimento*>* node) const {
+    void BinarySearchTreeAVL<PersonByBirthDate*>::printPostOrderRecursive(Node<PersonByBirthDate*>* node) const {
         if (node) {
             printPostOrderRecursive(node->left);
             printPostOrderRecursive(node->right);
@@ -910,7 +900,7 @@ public:
         }
     }
 
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::minRecursive(Node<PessoaPorDataDeNascimento*>* node) const {
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::minRecursive(Node<PersonByBirthDate*>* node) const {
         if (!node)
             return nullptr;
         if (node->left)
@@ -919,7 +909,7 @@ public:
             return node;
     }
 
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::maxRecursive(Node<PessoaPorDataDeNascimento*>* node) const {
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::maxRecursive(Node<PersonByBirthDate*>* node) const {
         if (!node)
             return nullptr;
         else if (node->right)
@@ -928,12 +918,12 @@ public:
             return node;
     }
 
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::sucessor(Node<PessoaPorDataDeNascimento*>* node) {
-        Node<PessoaPorDataDeNascimento*>* temp = findRecursive(this->root, minRecursive(node)->key);
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::sucessor(Node<PersonByBirthDate*>* node) {
+        Node<PersonByBirthDate*>* temp = findRecursive(this->root, minRecursive(node)->key);
         if (node->right) 
             return minRecursive(node->right);
         else {
-            Node<PessoaPorDataDeNascimento*>* atual = node->parent;
+            Node<PersonByBirthDate*>* atual = node->parent;
             while (atual && node == atual->right) {
                 node = atual;
                 atual = atual->parent;
@@ -942,8 +932,8 @@ public:
         }
     }
 
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::predecessor(Node<PessoaPorDataDeNascimento*>* node) {
-        Node<PessoaPorDataDeNascimento*>* temp = findRecursive(this->root, node->key);
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::predecessor(Node<PersonByBirthDate*>* node) {
+        Node<PersonByBirthDate*>* temp = findRecursive(this->root, node->key);
         if (!temp)
             return nullptr;
         else if (*getMin()->key == *temp->key)
@@ -951,7 +941,7 @@ public:
         else if (node->left) 
             return maxRecursive(node->left);
         else {
-            Node<PessoaPorDataDeNascimento*>* atual = node->parent;
+            Node<PersonByBirthDate*>* atual = node->parent;
             while (atual && node == atual->left) {
                 node = atual;
                 atual = atual->parent;
@@ -960,7 +950,7 @@ public:
         }
     }
 
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::clear(Node<PessoaPorDataDeNascimento*>* node) {
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::clear(Node<PersonByBirthDate*>* node) {
         if(node) {
             node->left = clear(node->left);
             node->right = clear(node->right);
@@ -969,25 +959,25 @@ public:
         return nullptr;
     }
 
-    void BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::bShow(Node<PessoaPorDataDeNascimento*>* node, std::string heranca) const {
+    void BinarySearchTreeAVL<PersonByBirthDate*>::bShow(Node<PersonByBirthDate*>* node, std::string heritage) const {
         if(node && (node->left || node->right))
-            BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::bShow(node->right , heranca + "r");
-        for (int i = 0; i < (int) heranca.size() - 1; i++)
-            std::cout << (heranca[i] != heranca[i + 1] ? "│   " : "    ");
-        if (heranca != "")
-            std::cout << (heranca.back() == 'r' ? "┌───" : "└───");
+            BinarySearchTreeAVL<PersonByBirthDate*>::bShow(node->right , heritage + "r");
+        for (int i = 0; i < (int) heritage.size() - 1; i++)
+            std::cout << (heritage[i] != heritage[i + 1] ? "│   " : "    ");
+        if (heritage != "")
+            std::cout << (heritage.back() == 'r' ? "┌───" : "└───");
         if (!node) {
             std::cout << "#" << std::endl;
             return;
         }
         std::cout << *node->key << std::endl;
         if (node && (node->left || node->right))
-            this->bShow(node->left, heranca + "l");
+            this->bShow(node->left, heritage + "l");
     }
 
 // public methods
 
-    void BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::preOrder() {
+    void BinarySearchTreeAVL<PersonByBirthDate*>::preOrder() {
         if (!this->root) {
             std::cout << "Empty tree" << std::endl;
             return;
@@ -996,7 +986,7 @@ public:
             this->printPreOrderRecursive(this->root);
     }
 
-    void BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::inOrder() {
+    void BinarySearchTreeAVL<PersonByBirthDate*>::inOrder() {
         if (!this->root) {
             std::cout << "Empty tree" << std::endl;
             return;
@@ -1006,47 +996,47 @@ public:
     }
 
     
-    void BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::postOrder() {
+    void BinarySearchTreeAVL<PersonByBirthDate*>::postOrder() {
         if (!this->root)
             std::cout << "Empty tree" << std::endl;
         else
             this->printPostOrderRecursive(this->root);
     }
 
-    void BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::bShow() { this->bShow(this->root, ""); }
+    void BinarySearchTreeAVL<PersonByBirthDate*>::bShow() { this->bShow(this->root, ""); }
     
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::getMin() { return this->minRecursive(this->root); }
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::getMin() { return this->minRecursive(this->root); }
     
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::getMax() { return this->maxRecursive(this->root); }
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::getMax() { return this->maxRecursive(this->root); }
 
-    Node<PessoaPorDataDeNascimento*>* BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::getRaiz() { return this->root; }
+    Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::getRaiz() { return this->root; }
 
     
-    int BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::getSize() { return this->sizeRecursive(this->root); }
+    int BinarySearchTreeAVL<PersonByBirthDate*>::getSize() { return this->sizeRecursive(this->root); }
     
-    void BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::find(Node<PessoaPorDataDeNascimento*>* node, PessoaPorDataDeNascimento* value) { 
+    void BinarySearchTreeAVL<PersonByBirthDate*>::find(Node<PersonByBirthDate*>* node, PersonByBirthDate* value) { 
         if (*node->key > *value || *value < *node->key) {
-            std::cout << "Intervalo inválido" << std::endl;
+            std::cout << "Invalid range" << std::endl;
             return;
         }
-        PessoaPorDataDeNascimento* limitanteInferior = findRecursive(this->root, node->key)->key;
-        PessoaPorDataDeNascimento* limitanteSuperior = findRecursive(this->root, value)->key;
-        std::stack<Node<PessoaPorDataDeNascimento*>*> pilha;
-        Node<PessoaPorDataDeNascimento*>* iterator = this->root;
-        while (iterator || !pilha.empty()) {
+        PersonByBirthDate* lowerBound = findRecursive(this->root, node->key)->key;
+        PersonByBirthDate* upperBound = findRecursive(this->root, value)->key;
+        std::stack<Node<PersonByBirthDate*>*> stack;
+        Node<PersonByBirthDate*>* iterator = this->root;
+        while (iterator || !stack.empty()) {
             while (iterator) {
-                pilha.push(iterator);
+                stack.push(iterator);
                 iterator = iterator->left;
             }
 
-            if (!pilha.empty()) {
-                iterator = pilha.top();
-                pilha.pop();
+            if (!stack.empty()) {
+                iterator = stack.top();
+                stack.pop();
 
-                if (*iterator->key > *limitanteSuperior)
+                if (*iterator->key > *upperBound)
                     break;
 
-                if (*iterator->key > *limitanteInferior || *iterator->key == *limitanteInferior)
+                if (*iterator->key > *lowerBound || *iterator->key == *lowerBound)
                     std::cout << *iterator->key << " ";
 
                 iterator = iterator->right;
@@ -1054,7 +1044,7 @@ public:
         }
     }
     
-    void BinarySearchTreeAVL<PessoaPorDataDeNascimento*>::insert(PessoaPorDataDeNascimento* value) {
+    void BinarySearchTreeAVL<PersonByBirthDate*>::insert(PersonByBirthDate* value) {
         this->root = insertRecursive(this->root, value);
     }
 #endif
