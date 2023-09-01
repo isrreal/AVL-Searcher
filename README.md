@@ -1,29 +1,15 @@
-O seguinte código tem o fito de realizar operações de busca e inserção implementadas em templates baseadas nas chaves de busca por pessoa: CPF, nome e data de nascimento. Tais operações tem 
-complexidade temporal logarítmica O(lg n), para isso utiliza-se a estrutura de dado de uma árvore binária de busca "auto-balanceável", AVL, baseado nas informações que foram lidas do arquivo CSV("COMMA SEPARATED FILE"), "data.csv". As operações de busca na dita árvore são diferenciadas pelos seguintes parâmetros:
+The following code is intended to carry out search and insertion operations implemented in templates based on search keys by person: CPF, name and date of birth. Such operations have a logarithmic time complexity of O(lg n), for that, the data structure of a "self-balancing" binary search tree, AVL, is used, based on the information that was read from the CSV file("COMMA SEPARATED FILE" ), "data.csv". Search operations in said tree are distinguished by the following parameters:
 
-CPF:  recebe a CPF na entrada e retorna as informações do CPF pesquisado.
-      mensagem de erro --> (caso não encontrado).
+CPF: receives the CPF at the entrance and returns the information of the searched CPF. error message --> (if not found).
 
-Nome: recebe um substring na entrada, e retorna todos os nomes que possuem pelo menos aquela substring.
-        mensagem de erro --> (caso não houver correspondências).
+Name: takes a substring on input, and returns all names that have at least that substring. error message --> (if there are no matches).
 
-Data: recebe duas datas e retorna todas as informações das pessoas presentes nesse intervalo.
-       mensagem de erro --> (caso os intervalos não sejam válidos).
+Date: receives two dates and returns all the information of the people present in that interval. error message --> (if ranges are not valid).
 
+Classes PersonByCPF, PersonByName, PersonByDataDeNascimento are subinstances of the parent class, called Person, used with the intention of overloading the comparison operators in a disparate way.
 
+The different templates for each sub-instance of Person were implemented with the respective overloaded comparison operations underpinning them.
 
-As classes PessoaPorCPF, PessoaPorNome, PessoaPorDataDeNascimento são subinstâncias da classe pai,
-chamada Pessoa, utilizada ao o intento de sobrecarregar os operadores de comparação de modo díspar.
-
-Os diferentes templates para cada subinstância de Pessoa foram implementados com as respectivas operações de comparação sobrecarregadas susoditas.
-
-
-A seguir, eis o modo de compilação padrão ao código:
+Here is the default compilation mode for the code:
 
 g++ *.cpp -o main -std=c++17 && ./main
-
-
-
-
-
-
