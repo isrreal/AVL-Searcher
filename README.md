@@ -6,7 +6,7 @@ Name: takes a substring on input, and returns all names that have at least that 
 
 Date: receives two dates and returns all the information of the people present in that interval. error message --> (if ranges are not valid).
 
-Classes PersonByCPF, PersonByName, PersonByDataDeNascimento are subinstances of the parent class, called Person, used with the intention of overloading the comparison operators in a disparate way.
+Classes PersonByCPF, PersonByName, PersonByBirthDate are subinstances of the parent class, called Person, used with the intention of overloading the comparison operators in a disparate way.
 
 The different templates for each sub-instance of Person were implemented with the respective overloaded comparison operations underpinning them.
 
