@@ -1,17 +1,20 @@
 # AVL Searcher
 
-The following code is intended to carry out search and insertion operations implemented in templates based on search keys by person: CPF, name and date of birth. Such operations have a logarithmic time complexity of O(lg n), for that, the data structure of a "self-balancing" binary search tree, AVL, is used, based on the information that was read from the CSV file("COMMA SEPARATED FILE" ), "data.csv". Search operations in said tree are distinguished by the following parameters:
+The AVL Searcher code is designed to perform search and insertion operations based on search keys such as CPF (Brazilian individual taxpayer registry number), name, and date of birth. These operations are implemented using templates and have a logarithmic time complexity of O(log n). The data structure used for this purpose is a "self-balancing" binary search tree known as AVL tree. The input data is read from a CSV file named "data.csv".
 
-* CPF: receives the CPF at the entrance and returns the information of the searched CPF. error message --> (if not found).
+Search operations in the AVL tree are differentiated based on the following parameters:
 
-* Name: takes a substring on input, and returns all names that have at least that substring. error message --> (if there are no matches).
+* **CPF**: Accepts a CPF as input and returns the information associated with the searched CPF. If the CPF is not found, an error message is displayed.
 
-* Date: receives two dates and returns all the information of the people present in that interval. error message --> (if ranges are not valid).
+* **Name**: Accepts a substring as input and returns all names that contain at least that substring. If there are no matches, an error message is displayed.
 
-* Classes PersonByCPF, PersonByName, PersonByBirthDate are subinstances of the parent class, called Person, used with the intention of overloading the comparison operators in a disparate way.
+* **Date**: Accepts two dates as input and returns all information of individuals with birth dates falling within that interval. If the provided date ranges are not valid, an error message is displayed.
 
-The different templates for each sub-instance of Person were implemented with the respective overloaded comparison operations underpinning them.
+The classes `PersonByCPF`, `PersonByName`, and `PersonByBirthDate` are subclasses of a parent class called `Person`. These subclasses are used to overload the comparison operators in a customized manner.
 
-Here is the default compilation mode for the code:
+Different templates are implemented for each subclass of `Person`, with overloaded comparison operators tailored to their specific attributes.
 
-- g++ *.cpp -o main -std=c++17 && ./main
+Here is the default compilation and execution command for the code:
+
+```bash
+g++ *.cpp -o main -std=c++17 && ./main
