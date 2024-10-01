@@ -552,7 +552,6 @@ public:
     }
 
     Node<PersonByBirthDate*>* BinarySearchTreeAVL<PersonByBirthDate*>::sucessor(Node<PersonByBirthDate*>* node) {
-        Node<PersonByBirthDate*>* temp = findRecursive(this->root, minRecursive(node)->key);
         if (node->right) 
             return minRecursive(node->right);
         else {
