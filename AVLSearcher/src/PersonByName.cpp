@@ -35,7 +35,7 @@ bool PersonByName::operator < (const PersonByName& person) {
     std::string name2 = this->normalizeName(convert.from_bytes(person.getName()));
     std::string surname = this->normalizeName(convert.from_bytes(this->getSurname()));
     std::string surname2 = this->normalizeName(convert.from_bytes(person.getSurname()));
-    return (name < name2)  || (name < name2 && surname < surname2 || (name == name2 && surname < surname2));
+    return (name < name2)  || (((name < name2) && (surname < surname2)) || ((name == name2) && (surname < surname2)));
 }
 
 bool PersonByName::operator > (const PersonByName& person) {
@@ -55,14 +55,14 @@ bool PersonByName::operator == (const PersonByName& person) {
     std::string surname2 = this->normalizeName(convert.from_bytes(person.getSurname()));
     size_t totalName = name.size() < name2.size() ? name.size() : name2.size();
     size_t totalSurname = surname.size() < surname2.size() ? surname.size() : surname2.size();
-    for (auto it = 0; it < totalName; ++it) {
+    for (size_t it = 0; it < totalName; ++it) {
         if (name.data()[it] == name2.data()[it])
             ++contName;    
         else
             return false;
     }
 
-    for (auto it = 0; it < totalSurname; ++it) {
+    for (size_t it = 0; it < totalSurname; ++it) {
         if (surname.data()[it] == surname2.data()[it])
             ++contSurname;
         else 

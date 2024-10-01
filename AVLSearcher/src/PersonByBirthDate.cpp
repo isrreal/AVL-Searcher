@@ -52,26 +52,34 @@ std::vector<std::string> PersonByBirthDate::normalizeDate(std::string date) {
         return {day, month, year};
 }
 
-bool PersonByBirthDate::operator < (const PersonByBirthDate& person) {
-    return (std::stoi(normalizeDate(this->getBirthDate())[2]) == std::stoi(normalizeDate(person.getBirthDate())[2])
-            && std::stoi(normalizeDate(this->getBirthDate())[1]) == std::stoi(normalizeDate(person.getBirthDate())[1])
-            && std::stoi(normalizeDate(this->getBirthDate())[0]) < std::stoi(normalizeDate(person.getBirthDate())[0])) 
-            || (std::stoi(normalizeDate(this->getBirthDate())[2]) == std::stoi(normalizeDate(person.getBirthDate())[2]))
-            && std::stoi(normalizeDate(this->getBirthDate())[1]) < std::stoi(normalizeDate(person.getBirthDate())[1])
-            || std::stoi(normalizeDate(this->getBirthDate())[2]) < std::stoi(normalizeDate(person.getBirthDate())[2]);
+bool PersonByBirthDate::operator<(const PersonByBirthDate& person) {
+    return (
+        (std::stoi(normalizeDate(this->getBirthDate())[2]) == std::stoi(normalizeDate(person.getBirthDate())[2]) &&
+         std::stoi(normalizeDate(this->getBirthDate())[1]) == std::stoi(normalizeDate(person.getBirthDate())[1]) &&
+         std::stoi(normalizeDate(this->getBirthDate())[0]) < std::stoi(normalizeDate(person.getBirthDate())[0]))
+        ||
+        (std::stoi(normalizeDate(this->getBirthDate())[2]) == std::stoi(normalizeDate(person.getBirthDate())[2]) &&
+         std::stoi(normalizeDate(this->getBirthDate())[1]) < std::stoi(normalizeDate(person.getBirthDate())[1]))
+        ||
+        (std::stoi(normalizeDate(this->getBirthDate())[2]) < std::stoi(normalizeDate(person.getBirthDate())[2]))
+    );
 }
 
-bool PersonByBirthDate::operator > (const PersonByBirthDate& person) {
-        return (std::stoi(normalizeDate(this->getBirthDate())[2]) == std::stoi(normalizeDate(person.getBirthDate())[2])
-            && std::stoi(normalizeDate(this->getBirthDate())[1]) == std::stoi(normalizeDate(person.getBirthDate())[1])
-            && std::stoi(normalizeDate(this->getBirthDate())[0]) > std::stoi(normalizeDate(person.getBirthDate())[0])) 
-            || (std::stoi(normalizeDate(this->getBirthDate())[2]) == std::stoi(normalizeDate(person.getBirthDate())[2]))
-            && std::stoi(normalizeDate(this->getBirthDate())[1]) > std::stoi(normalizeDate(person.getBirthDate())[1])
-            || std::stoi(normalizeDate(this->getBirthDate())[2]) > std::stoi(normalizeDate(person.getBirthDate())[2]);
+bool PersonByBirthDate::operator>(const PersonByBirthDate& person) {
+    return (
+        (std::stoi(normalizeDate(this->getBirthDate())[2]) == std::stoi(normalizeDate(person.getBirthDate())[2]) &&
+         std::stoi(normalizeDate(this->getBirthDate())[1]) == std::stoi(normalizeDate(person.getBirthDate())[1]) &&
+         std::stoi(normalizeDate(this->getBirthDate())[0]) > std::stoi(normalizeDate(person.getBirthDate())[0]))
+        ||
+        (std::stoi(normalizeDate(this->getBirthDate())[2]) == std::stoi(normalizeDate(person.getBirthDate())[2]) &&
+         std::stoi(normalizeDate(this->getBirthDate())[1]) > std::stoi(normalizeDate(person.getBirthDate())[1]))
+        ||
+        (std::stoi(normalizeDate(this->getBirthDate())[2]) > std::stoi(normalizeDate(person.getBirthDate())[2]))
+    );
 }
 
 bool PersonByBirthDate::operator == (const PersonByBirthDate& person) {
-    return std::stoi(normalizeDate(this->getBirthDate())[2]) == std::stoi(normalizeDate(person.getBirthDate())[2])
-        && std::stoi(normalizeDate(this->getBirthDate())[1]) == std::stoi(normalizeDate(person.getBirthDate())[1])
-        && std::stoi(normalizeDate(this->getBirthDate())[0]) == std::stoi(normalizeDate(person.getBirthDate())[0]);
+    return (std::stoi(normalizeDate(this->getBirthDate())[2]) == std::stoi(normalizeDate(person.getBirthDate())[2]))
+        && (std::stoi(normalizeDate(this->getBirthDate())[1]) == std::stoi(normalizeDate(person.getBirthDate())[1]))
+        && (std::stoi(normalizeDate(this->getBirthDate())[0]) == std::stoi(normalizeDate(person.getBirthDate())[0]));
 }
