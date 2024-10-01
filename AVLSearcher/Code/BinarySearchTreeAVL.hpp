@@ -7,6 +7,7 @@
 // the difference between the heights of the left and right subtrees is at most 1.
 
 // using the template for different key types
+
 int contador = 0;
 template <typename T>
 
@@ -607,8 +608,8 @@ public:
             this->bShow(node->left, heritage + "l");
     }
 
-// public methods
 
+// public methods
 
     void BinarySearchTreeAVL<PersonByBirthDate*>::bShow() { this->bShow(this->root, ""); }
     
