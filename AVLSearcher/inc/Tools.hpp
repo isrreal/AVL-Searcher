@@ -38,7 +38,6 @@ namespace Tools {
         std::string input = "";
         std::string input2 = ""; 
         BinarySearchTreeAVL<PersonByCPF*> tree1;
-        PersonByCPF* teste = new PersonByCPF(data[1][0], data[1][1], data[1][2], data[1][3], data[1][4]); 
         BinarySearchTreeAVL<PersonByName*> tree2;  
         BinarySearchTreeAVL<PersonByBirthDate*> tree3;
         tree1.insert(new PersonByCPF(data[1][0], data[1][1], data[1][2], data[1][3], data[1][4]));  
