@@ -91,7 +91,7 @@ namespace Tools {
                     int date2Year = std::stoi(date2[2]);
                     if ((dateDay > 0 && dateDay < 32) && (date2Day > 0 && date2Day < 32)
                         && (dateMonth > 0 && dateMonth < 13) && (date2Month > 0 && date2Month < 32)
-                        && (date2Year > 0 && date2Year > 0)) {
+                        && (dateYear > 0 && dateYear > 0) && (date2Year > 0 && date2Year > 0)) {
                         tree3.find(new Node<PersonByBirthDate*>(new PersonByBirthDate(input)),
                                     new PersonByBirthDate(input2));
                     }
