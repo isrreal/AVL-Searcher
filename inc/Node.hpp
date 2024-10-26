@@ -1,5 +1,5 @@
-#ifndef NODE_H
-#define NODE_H
+#ifndef NODE_HPP
+#define NODE_HPP
 
 #include "PersonByCPF.hpp"
 #include "PersonByBirthDate.hpp"
