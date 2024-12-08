@@ -3,7 +3,7 @@ IPATH=-Iinc/
 SRC=src/
 OBJ=obj/
 
-all: app
+all: create_folder app
 
 app: main.gch Person.gch PersonByCPF.gch PersonByName.gch PersonByBirthDate.gch  
 	g++ $(OBJ)main.gch $(OBJ)Person.gch $(OBJ)PersonByCPF.gch $(OBJ)PersonByName.gch $(OBJ)PersonByBirthDate.gch -o app
@@ -23,6 +23,8 @@ PersonByName.gch: $(SRC)PersonByName.cpp
 PersonByBirthDate.gch: $(SRC)PersonByBirthDate.cpp 
 	g++ $(CPPFLAGS) $(IPATH) -c $(SRC)PersonByBirthDate.cpp -o $(OBJ)PersonByBirthDate.gch
 	
+create_folder:
+	mkdir -p $(OBJ)
 clean:
 	rm -rf $(OBJ)*.gch
 
