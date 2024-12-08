@@ -46,14 +46,14 @@ namespace Tools {
 
         std::string input {};
         std::string input2 {}; 
-        BinarySearchTreeAVL<PersonByCPF*> tree1;
-        BinarySearchTreeAVL<PersonByName*> tree2;  
-        BinarySearchTreeAVL<PersonByBirthDate*> tree3;
-        tree1.insert(new PersonByCPF(data[1][0], data[1][1], data[1][2], data[1][3], data[1][4]));  
+        BinarySearchTreeAVL<PersonByCPF> tree1;
+        BinarySearchTreeAVL<PersonByName> tree2;  
+        BinarySearchTreeAVL<PersonByBirthDate> tree3;
+        tree1.insert(PersonByCPF(data[1][0], data[1][1], data[1][2], data[1][3], data[1][4]));  
         for (size_t i {1}; i < data.size(); ++i) {
-            tree1.insert(new PersonByCPF(data[i][0], data[i][1], data[i][2], data[i][3], data[i][4]));
-            tree2.insert(new PersonByName(data[i][0], data[i][1], data[i][2], data[i][3], data[i][4]));
-            tree3.insert(new PersonByBirthDate(data[i][0], data[i][1], data[i][2], data[i][3], data[i][4]));
+            tree1.insert(PersonByCPF(data[i][0], data[i][1], data[i][2], data[i][3], data[i][4]));
+            tree2.insert(PersonByName(data[i][0], data[i][1], data[i][2], data[i][3], data[i][4]));
+            tree3.insert(PersonByBirthDate(data[i][0], data[i][1], data[i][2], data[i][3], data[i][4]));
         }
             
         while (true) {
@@ -68,7 +68,7 @@ namespace Tools {
                 std::cout << "Insert a valid CPF for search\n";     
                 std::cin >> input;
                 if (input.size() > 10 && input.size() < 15) {
-                    tree1.find(new PersonByCPF(input));
+                    tree1.find(PersonByCPF(input));
                 }
 
                 else {
@@ -82,7 +82,7 @@ namespace Tools {
             else if (option == '2') {
                 std::cout << "Insert one name for search\n";  
                 std::cin >> input;                
-                tree2.find(new PersonByName(input)); 
+                tree2.find(PersonByName(input)); 
                 std::cin.ignore(1, '\n');
                 std::cin.get();
             }
@@ -109,8 +109,8 @@ namespace Tools {
                     if ((dateDay > 0 && dateDay < 32) && (date2Day > 0 && date2Day < 32)
                         && (dateMonth > 0 && dateMonth < 13) && (date2Month > 0 && date2Month < 32)
                         && (dateYear > 0 && dateYear > 0) && (date2Year > 0 && date2Year > 0)) {
-                        tree3.find(new Node<PersonByBirthDate*>(new PersonByBirthDate(input)),
-                                    new PersonByBirthDate(input2));
+                        tree3.find(new Node<PersonByBirthDate>(PersonByBirthDate(input)),
+                                    PersonByBirthDate(input2));
                     }
 
                     else { 

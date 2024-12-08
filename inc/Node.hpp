@@ -19,51 +19,51 @@ struct Node {
 };
 
 template <>
-struct Node<PersonByCPF*> {
-    PersonByCPF* key;
-    Node<PersonByCPF*>* left;
-    Node<PersonByCPF*>* right;
-    Node<PersonByCPF*>* parent;
+struct Node<PersonByCPF> {
+    PersonByCPF key;
+    Node<PersonByCPF>* left;
+    Node<PersonByCPF>* right;
+    Node<PersonByCPF>* parent;
     int height;
-    Node<PersonByCPF*>(PersonByCPF* key,
-        Node<PersonByCPF*>* left = nullptr,
-        Node<PersonByCPF*>* right = nullptr,
-        Node<PersonByCPF*>* parent = nullptr,
+    Node<PersonByCPF>(PersonByCPF key,
+        Node<PersonByCPF>* left = nullptr,
+        Node<PersonByCPF>* right = nullptr,
+        Node<PersonByCPF>* parent = nullptr,
         int height = 1):
             key(key), left(left), right(right), parent(parent), height(height) {}
-    ~Node<PersonByCPF*>() = default;
+    ~Node<PersonByCPF>() = default;
 };
 
 template <>
-struct Node<PersonByName*> {
-    PersonByName* key;
-    Node<PersonByName*>* left;
-    Node<PersonByName*>* right;
-    Node<PersonByName*>* parent;
+struct Node<PersonByName> {
+    PersonByName key;
+    Node<PersonByName>* left;
+    Node<PersonByName>* right;
+    Node<PersonByName>* parent;
     int height;
-    Node<PersonByName*>(PersonByName* key,
-        Node<PersonByName*>* left = nullptr,
-        Node<PersonByName*>* right = nullptr,
-        Node<PersonByName*>* parent = nullptr,
+    Node<PersonByName>(PersonByName key,
+        Node<PersonByName>* left = nullptr,
+        Node<PersonByName>* right = nullptr,
+        Node<PersonByName>* parent = nullptr,
         int height = 1):
             key(key), left(left), right(right), parent(parent), height(height) {}
-    ~Node<PersonByName*>() = default;
+    ~Node<PersonByName>() = default;
 };
 
 template <>
-struct Node<PersonByBirthDate*> {
-    PersonByBirthDate* key;
-    Node<PersonByBirthDate*>* left;
-    Node<PersonByBirthDate*>* right;
-    Node<PersonByBirthDate*>* parent;
+struct Node<PersonByBirthDate> {
+    PersonByBirthDate key;
+    Node<PersonByBirthDate>* left;
+    Node<PersonByBirthDate>* right;
+    Node<PersonByBirthDate>* parent;
     int height;
-    Node<PersonByBirthDate*>(PersonByBirthDate* key,
-        Node<PersonByBirthDate*>* left = nullptr,
-        Node<PersonByBirthDate*>* right = nullptr,
-        Node<PersonByBirthDate*>* parent = nullptr,
+    Node<PersonByBirthDate>(PersonByBirthDate key,
+        Node<PersonByBirthDate>* left = nullptr,
+        Node<PersonByBirthDate>* right = nullptr,
+        Node<PersonByBirthDate>* parent = nullptr,
         int height = 1):
             key(key), left(left), right(right), parent(parent), height(height) {}
-    ~Node<PersonByBirthDate*>() = default;
+    ~Node<PersonByBirthDate>() = default;
 };
 
 #endif
