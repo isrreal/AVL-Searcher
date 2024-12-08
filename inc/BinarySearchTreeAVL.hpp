@@ -8,7 +8,6 @@
 
 // using the template for different key types
 
-int contador = 0;
 template <typename T>
 
 class BinarySearchTreeAVL {
