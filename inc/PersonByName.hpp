@@ -7,6 +7,7 @@ class PersonByName : public Person {
 public:
     static std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> convert;
     static std::string normalizeName(std::wstring name);
+    
     PersonByName(std::string CPF, std::string name, std::string surname,
             std::string birthDate,
             std::string homeTown): Person(CPF, name, surname, birthDate, homeTown) {}
