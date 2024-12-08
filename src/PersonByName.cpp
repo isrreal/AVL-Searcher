@@ -1,7 +1,8 @@
 #include "PersonByName.hpp"
 
 std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> PersonByName::convert;
-inline std::string PersonByName::normalizeName(std::wstring name) {
+
+std::string PersonByName::normalizeName(std::wstring name) {
     std::string output;
     for (wchar_t character: name) {
         if (character == L'á' || character == L'à' || character == L'ã' || character == L'â' ||
