@@ -17,7 +17,7 @@ private:
     int sizeRecursive(Node<T>* node) const;
     int getBalance(Node<T>* node) const;
     int height(Node<T>* node) const;
-    Node<T>* findRecursive(Node<T>* node, T value);
+    Node<T>* findRecursive(Node<T>* node, const T& value);
     Node<T>* minRecursive(Node<T>* node) const;
     Node<T>* maxRecursive(Node<T>* node) const;
     Node<T>* insertRecursive(Node<T>* node, T value);
@@ -44,7 +44,7 @@ private:
     int sizeRecursive(Node<PersonByCPF>* node) const;
     int height(Node<PersonByCPF>* node) const;
     int getBalance(Node<PersonByCPF>* node) const;
-    Node<PersonByCPF>* findRecursive(Node<PersonByCPF>* node, PersonByCPF value);
+    Node<PersonByCPF>* findRecursive(Node<PersonByCPF>* node, const PersonByCPF& value);
     Node<PersonByCPF>* insertRecursive(Node<PersonByCPF>* node, PersonByCPF value);
     Node<PersonByCPF>* rightRotation(Node<PersonByCPF>* node);
     Node<PersonByCPF>* leftRotation(Node<PersonByCPF>* node);
@@ -67,7 +67,7 @@ private:
     void bShow(Node<PersonByName>* node, std::string str) const;
     int height(Node<PersonByName>* node) const;
     int getBalance(Node<PersonByName>* node) const;
-    Node<PersonByName>* findRecursive(Node<PersonByName>* node, PersonByName value);
+    Node<PersonByName>* findRecursive(Node<PersonByName>* node, const PersonByName& value);
     Node<PersonByName>* minRecursive(Node<PersonByName>* node) const;
     Node<PersonByName>* maxRecursive(Node<PersonByName>* node) const; 
     Node<PersonByName>* insertRecursive(Node<PersonByName>* node, PersonByName value);
@@ -94,7 +94,7 @@ private:
     int sizeRecursive(Node<PersonByBirthDate>* node) const;
     int height(Node<PersonByBirthDate>* node) const;
     int getBalance(Node<PersonByBirthDate>* node) const;
-    Node<PersonByBirthDate>* findRecursive(Node<PersonByBirthDate>* node, PersonByBirthDate value);
+    Node<PersonByBirthDate>* findRecursive(Node<PersonByBirthDate>* node, const PersonByBirthDate& value);
     Node<PersonByBirthDate>* minRecursive(Node<PersonByBirthDate>* node) const;
     Node<PersonByBirthDate>* maxRecursive(Node<PersonByBirthDate>* node) const; 
     Node<PersonByBirthDate>* insertRecursive(Node<PersonByBirthDate>* node, PersonByBirthDate value);
@@ -188,7 +188,7 @@ public:
         return node;
     }
 
-    Node<PersonByCPF>* BinarySearchTreeAVL<PersonByCPF>::findRecursive(Node<PersonByCPF>* node, PersonByCPF value) {
+    Node<PersonByCPF>* BinarySearchTreeAVL<PersonByCPF>::findRecursive(Node<PersonByCPF>* node, const PersonByCPF& value) {
         if (!node)
             return nullptr;
         else if (node->key == value)
@@ -306,9 +306,11 @@ public:
         return temp;
     }
 
-    Node<PersonByName>* BinarySearchTreeAVL<PersonByName>::findRecursive(Node<PersonByName>* node, PersonByName value) {
-        if (!node)
+    Node<PersonByName>* BinarySearchTreeAVL<PersonByName>::findRecursive(Node<PersonByName>* node, const PersonByName& value) {
+        if (!node) {
             return nullptr;
+        }
+
         if (node->key == value) {
             this->findRecursive(node->left, value);
             std::cout << node->key << std::endl;
@@ -505,7 +507,7 @@ public:
     return node;
 }
     
-    Node<PersonByBirthDate>* BinarySearchTreeAVL<PersonByBirthDate>::findRecursive(Node<PersonByBirthDate>* node, PersonByBirthDate value) {
+    Node<PersonByBirthDate>* BinarySearchTreeAVL<PersonByBirthDate>::findRecursive(Node<PersonByBirthDate>* node, const PersonByBirthDate& value) {
         if (!node)
             return nullptr;
         if (node->key == value)
@@ -622,6 +624,7 @@ public:
             std::cout << "Invalid range" << std::endl;
             return;
         }
+
         PersonByBirthDate lowerBound = findRecursive(this->root, node->key)->key;
         PersonByBirthDate upperBound = findRecursive(this->root, value)->key;
         std::stack<Node<PersonByBirthDate>*> stack;
@@ -636,11 +639,13 @@ public:
                 iterator = stack.top();
                 stack.pop();
 
-                if (iterator->key > upperBound)
+                if (iterator->key > upperBound) {
                     break;
+                }
 
-                if (iterator->key > lowerBound || iterator->key == lowerBound)
+                if (iterator->key > lowerBound || iterator->key == lowerBound) {
                     std::cout << iterator->key << " ";
+                }
 
                 iterator = iterator->right;
             }
