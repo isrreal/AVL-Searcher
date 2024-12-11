@@ -49,7 +49,7 @@ namespace Tools {
         BinarySearchTreeAVL<PersonByCPF> tree1;
         BinarySearchTreeAVL<PersonByName> tree2;  
         BinarySearchTreeAVL<PersonByBirthDate> tree3;
-        tree1.insert(PersonByCPF(data[1][0], data[1][1], data[1][2], data[1][3], data[1][4]));  
+        
         for (size_t i {1}; i < data.size(); ++i) {
             tree1.insert(PersonByCPF(data[i][0], data[i][1], data[i][2], data[i][3], data[i][4]));
             tree2.insert(PersonByName(data[i][0], data[i][1], data[i][2], data[i][3], data[i][4]));
@@ -91,8 +91,8 @@ namespace Tools {
                 std::cout << "Insert the date range: \n";
                 std::cin >> input;
                 std::cin >> input2;  
-                std::vector<std::string> date { PersonByBirthDate::normalizeDate(input) };
-                std::vector<std::string> date2 { PersonByBirthDate::normalizeDate(input2) };
+                std::vector<std::string> date = PersonByBirthDate::normalizeDate(input);
+                std::vector<std::string> date2 = PersonByBirthDate::normalizeDate(input2);
 
                 if (date.empty() || date2.empty()) {
                     std::cout << "Invalid input.\n";
@@ -109,7 +109,7 @@ namespace Tools {
                     if ((dateDay > 0 && dateDay < 32) && (date2Day > 0 && date2Day < 32)
                         && (dateMonth > 0 && dateMonth < 13) && (date2Month > 0 && date2Month < 32)
                         && (dateYear > 0 && dateYear > 0) && (date2Year > 0 && date2Year > 0)) {
-                        tree3.find(new Node<PersonByBirthDate>(PersonByBirthDate(input)),
+                        tree3.find(PersonByBirthDate(input),
                                     PersonByBirthDate(input2));
                     }
 
@@ -120,6 +120,7 @@ namespace Tools {
                 std::cin.ignore(1, '\n');
                 std::cin.get();
             }
+            
 
             else {
                 std::cout << "Closing the aplication.\n";
